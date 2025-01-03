@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function App() {
     return (
@@ -33,7 +34,10 @@ export default function App() {
                         </div>
                     </div>
                 </div>
-                <button className="bg-blue-500 py-2 px-3 gap-2 rounded-xl flex items-center w-max absolute bottom-14">
+                <Link
+                    href={"/home"}
+                    className="bg-blue-500 py-2 px-3 gap-2 rounded-xl flex items-center w-max absolute bottom-14"
+                >
                     <p className="font-medium text-white text-nowrap">
                         Let`s start
                     </p>
@@ -43,7 +47,7 @@ export default function App() {
                         height={20}
                         alt="arrow"
                     />
-                </button>
+                </Link>
             </div>
             <div className="relative w-full col-span-2 h-full">
                 <Image
