@@ -8,17 +8,20 @@ export default {
     ],
     darkMode: ["class", "class"],
     theme: {
-    	extend: {
-    		colors: {
-    			background: 'var(--background)',
-    			foreground: 'var(--foreground)'
-    		},
-    		borderRadius: {
-    			lg: 'var(--radius)',
-    			md: 'calc(var(--radius) - 2px)',
-    			sm: 'calc(var(--radius) - 4px)'
-    		}
-    	}
+        extend: {
+            colors: {
+                background: "var(--background)",
+                foreground: "var(--foreground)",
+            },
+            borderRadius: {
+                lg: "var(--radius)",
+                md: "calc(var(--radius) - 2px)",
+                sm: "calc(var(--radius) - 4px)",
+            },
+            boxShadow: {
+                columnShadow: "0px -2px 2px 0 #3b82f680",
+            },
+        },
     },
     plugins: [require("tailwindcss-animate")],
 } satisfies Config;

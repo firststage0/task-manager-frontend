@@ -6,6 +6,12 @@ interface IBoardsStore {
     activeBoard: IBoard;
     getBoards: (url: string) => Promise<void>;
     setActiveBoard: (board: IBoard) => void;
+    createColumn: (url: string, body: IColumnCreateBody) => Promise<void>;
+}
+
+interface IColumnCreateBody {
+    name: string;
+    boardId: number;
 }
 
 export const useBoardsStore = create<IBoardsStore>((set) => ({
@@ -21,5 +27,14 @@ export const useBoardsStore = create<IBoardsStore>((set) => ({
     setActiveBoard: (board: IBoard) => {
         set({ activeBoard: board });
     },
-    // createColumn: async (url: string, body: IColumn) => {},
+    createColumn: async (url: string, body: IColumnCreateBody) => {
+        const columnReq = await fetch(url, {
+            method: "POST",
+            body: JSON.stringify(body),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+        console.log(await columnReq.json());
+    },
 }));
