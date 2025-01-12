@@ -8,7 +8,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     const [isLoading, setIsLoading] = useState(true);
     const getBoards = useBoardsStore((state) => state.getBoards);
 
-    const getData = async () => {
+    const getBoardsData = async () => {
         await getBoards(
             `${domain}/api/boards?userId=cm5od3rvl0000vegoo1pjczt1`
         );
@@ -16,7 +16,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     };
 
     useEffect(() => {
-        getData();
+        getBoardsData();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 

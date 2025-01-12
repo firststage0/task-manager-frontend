@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import React, { useState } from "react";
-import AddBoard from "@/components/modals/AddBoard/Modal";
+import AddBoard from "@/modals/AddBoard/Modal";
 import { domain } from "@/utils/domain";
 import { useBoardsStore } from "@/store/boards";
 
@@ -26,7 +26,7 @@ export default function Page() {
     };
 
     return (
-        <div className="w-full h-full flex flex-col">
+        <div className="portal-here w-full h-full flex flex-col">
             <header className="flex items-center justify-between w-full px-6 py-4 border-b-2">
                 <div className="flex flex-col gap-2">
                     <p className="text-4xl font-semibold">My space</p>
@@ -99,7 +99,7 @@ export default function Page() {
                                         </p>
                                         <button
                                             onClick={() =>
-                                                deleteBoard(board.id)
+                                                deleteBoard(board.id!)
                                             }
                                         >
                                             Delete

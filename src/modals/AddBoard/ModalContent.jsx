@@ -40,7 +40,7 @@ export default function ModalContent({ onClose }) {
     };
     return (
         <>
-            <div className="fixed top-0 left-0 w-full h-dvh flex items-center justify-center">
+            <div className="top-0 left-0 w-full h-dvh flex items-center justify-center fixed">
                 <div
                     ref={ref}
                     className=" w-[300px] border-2 border-gray-700 shadow-2xl bg-white rounded-2xl px-4 py-2 flex flex-col items-end gap-2"
