@@ -20,22 +20,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    const renderData = () => {
-        switch (isLoading) {
-            case true:
-                return <div>Loading...</div>;
+    if (isLoading) return <div>Loading...</div>;
 
-            case false:
-                return (
-                    <div className="w-full h-full flex">
-                        <Navbar />
-                        <main className="w-full ">{children}</main>
-                    </div>
-                );
-            default:
-                return <div>Error</div>;
-        }
-    };
-
-    return <>{renderData()}</>;
+    return (
+        <div className="w-full h-full flex">
+            <Navbar />
+            <main className="w-full overflow-x-auto">{children}</main>
+        </div>
+    );
 }

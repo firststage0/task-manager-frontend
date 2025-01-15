@@ -9,7 +9,7 @@ export default function Navbar() {
     const boards = useBoardsStore((state) => state.boards);
 
     return (
-        <div className="w-[350px] flex flex-col h-dvh bg-gray-800 p-6 justify-between">
+        <div className="w-[350px] min-w-[350px] flex flex-col h-dvh bg-gray-800 p-6 justify-between">
             <div className="flex flex-col gap-4">
                 <p className="text-3xl font-bold text-white">
                     Task<span className="text-blue-600">Flow</span>
