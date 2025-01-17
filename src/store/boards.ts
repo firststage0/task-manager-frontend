@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { IBoard, ITask } from "@/types/boards";
+import { IBoard, ITask, TaskUpdateBody } from "@/types/boards";
 import { domain } from "@/utils/domain";
 
 interface IBoardsStore {
@@ -10,6 +10,7 @@ interface IBoardsStore {
     setActiveBoard: (board: IBoard) => void;
     createColumn: (url: string, body: IColumnCreateBody) => Promise<void>;
     createTask: (body: ITask) => Promise<void>;
+    updateTask: (body: TaskUpdateBody) => Promise<void>;
 }
 
 interface IColumnCreateBody {
@@ -53,6 +54,16 @@ export const useBoardsStore = create<IBoardsStore>((set, get) => ({
     },
     createTask: async (body) => {
         const task = await fetch(`${domain}/api/tasks`, {
+            method: "POST",
+            body: JSON.stringify(body),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+        console.log(await task.json());
+    },
+    updateTask: async (body) => {
+        const task = await fetch(`${domain}/api/tasks/update-task`, {
             method: "POST",
             body: JSON.stringify(body),
             headers: {

@@ -21,6 +21,8 @@ export interface ITask {
     columnId: number;
 }
 
+export type TaskUpdateBody = Partial<ITask>;
+
 export interface IColumn {
     id?: number;
     name: string;
