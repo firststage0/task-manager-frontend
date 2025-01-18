@@ -13,6 +13,7 @@ export interface ITask {
     description: string;
     priority?: string;
     tag?: string;
+    dueDate?: string;
     isComleted?: boolean;
     isPinned?: boolean;
     authorId: string;

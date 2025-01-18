@@ -35,7 +35,7 @@ export default function Column({ name, tasksCount }: ColumnProps) {
                             />
                         </svg>
                     </button>
-                    <ContextMenuBtn onClick={() => {}} />
+                    <ContextMenuBtn />
                 </div>
             </div>
         </div>

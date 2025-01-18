@@ -11,6 +11,7 @@ interface IBoardsStore {
     createColumn: (url: string, body: IColumnCreateBody) => Promise<void>;
     createTask: (body: ITask) => Promise<void>;
     updateTask: (body: TaskUpdateBody) => Promise<void>;
+    deleteTask: (id: number) => Promise<void>;
 }
 
 interface IColumnCreateBody {
@@ -66,6 +67,16 @@ export const useBoardsStore = create<IBoardsStore>((set, get) => ({
         const task = await fetch(`${domain}/api/tasks/update-task`, {
             method: "POST",
             body: JSON.stringify(body),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+        console.log(await task.json());
+    },
+    deleteTask: async (id: number) => {
+        const task = await fetch(`${domain}/api/tasks/delete-task`, {
+            method: "POST",
+            body: JSON.stringify({ id: id }),
             headers: {
                 "Content-Type": "application/json",
             },

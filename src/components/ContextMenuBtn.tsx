@@ -1,11 +1,8 @@
 import React from "react";
 
-export default function ContextMenuBtn({ onClick }: { onClick: () => void }) {
+export default function ContextMenuBtn() {
     return (
-        <button
-            onClick={onClick}
-            className="hover:text-blue-500 transition-colors outline-none"
-        >
+        <div className="hover:text-blue-500 transition-colors outline-none pointer">
             <svg
                 width="18px"
                 height="18px"
@@ -26,6 +23,6 @@ export default function ContextMenuBtn({ onClick }: { onClick: () => void }) {
                     fill="currentColor"
                 />
             </svg>
-        </button>
+        </div>
     );
 }
