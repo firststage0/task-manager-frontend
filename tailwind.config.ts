@@ -6,12 +6,14 @@ export default {
         "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
         "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     ],
-    darkMode: ["class", "class"],
+    darkMode: "class",
     theme: {
         extend: {
             colors: {
                 background: "var(--background)",
                 foreground: "var(--foreground)",
+                secondaryBackground: "var(--secondary-background)",
+                secondaryText: "var(--secondary-text)",
             },
             borderRadius: {
                 lg: "var(--radius)",

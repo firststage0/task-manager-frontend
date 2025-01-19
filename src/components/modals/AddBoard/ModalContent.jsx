@@ -1,13 +1,9 @@
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
-import { useDetectClickOutside } from "react-detect-click-outside";
 import { domain } from "@/utils/domain";
 export default function ModalContent({ onClose }) {
     const [boardName, setBoardName] = useState("");
     const inputRef = useRef(null);
-    const ref = useDetectClickOutside({
-        onTriggered: () => closeModal(),
-    });
 
     let boardRes;
     const closeModal = () => {
@@ -41,10 +37,7 @@ export default function ModalContent({ onClose }) {
     return (
         <>
             <div className="fixed top-0 left-0 w-full h-dvh flex items-center justify-center">
-                <div
-                    ref={ref}
-                    className=" w-[300px] border-2 border-gray-700 shadow-2xl bg-white rounded-2xl px-4 py-2 flex flex-col items-end gap-2"
-                >
+                <div className=" w-[300px] border-2 border-gray-700 shadow-2xl bg-white rounded-2xl px-4 py-2 flex flex-col items-end gap-2">
                     <div className="flex items-center justify-between w-full">
                         <p className="text-1xl font-bold">Create new board</p>
                         <button onClick={() => onClose()}>

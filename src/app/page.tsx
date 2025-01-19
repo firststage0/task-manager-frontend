@@ -1,12 +1,26 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
-
+import React, { useState, useEffect } from "react";
+import { useTheme } from "next-themes";
+import { usePalette } from "./theme-provider";
 export default function App() {
+    const [mounted, setMounted] = useState(false);
+    const { setTheme } = useTheme();
+    const { palette, setPalette } = usePalette();
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    if (!mounted) {
+        return null;
+    }
+
     return (
-        <div className="grid grid-cols-5 w-full h-full row-auto bg-gray-100">
+        <div className="grid grid-cols-5 w-full h-dvh row-auto">
             <div className="w-full h-full col-span-3 py-16 px-36 flex flex-col gap-6">
                 <p className="text-3xl font-bold">
-                    Task<span className="text-blue-600">Flow</span>
+                    Task<span className={`text-[${palette.color}]`}>Flow</span>
                 </p>
                 <p className="text-2xl font-medium">
                     Welcome to my task manager, where you can manage your tasks
@@ -33,6 +47,12 @@ export default function App() {
                             />
                         </div>
                     </div>
+                </div>
+                <div>
+                    <button onClick={() => setTheme("light")}>
+                        Light mode
+                    </button>
+                    <button onClick={() => setTheme("dark")}>Dark mode</button>
                 </div>
                 <Link
                     href={"/home"}

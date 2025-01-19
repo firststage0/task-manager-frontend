@@ -1,13 +1,9 @@
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
-import { useDetectClickOutside } from "react-detect-click-outside";
 import { domain } from "@/utils/domain";
 export default function ModalContent({ onClose }) {
     const [boardName, setBoardName] = useState("");
     const inputRef = useRef(null);
-    const ref = useDetectClickOutside({
-        onTriggered: () => closeModal(),
-    });
 
     let boardRes;
     const closeModal = () => {

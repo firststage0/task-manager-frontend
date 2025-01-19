@@ -2,16 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
-@media (prefers-color-scheme: light) {
-    :root {
-        --background: #0a0a0a;
-        --foreground: #ededed;
-    }
-}
-
 /* * {
     outline: 1px solid red;
 } */
+
+:root {
+    --secondary-text: rgb(131, 137, 146);
+}
+
+.light {
+    --background: rgb(255, 255, 255);
+    --secondary-background: rgb(232, 230, 227);
+    --foreground: rgb(0, 0, 0);
+}
+
+.dark {
+    --background: rgb(49, 56, 63);
+    --secondary-background: rgb(16, 19, 24);
+    --foreground: rgb(255, 255, 255);
+}
 
 html,
 body {
