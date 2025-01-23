@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { domain } from "@/utils/domain";
-import { useBoardsStore } from "@/store/boards";
+import { useBoardsStore } from "@/store/useStore";
 export default function ModalContent({ onClose }: { onClose: () => void }) {
     const createColumn = useBoardsStore((state) => state.createColumn);
     const board = useBoardsStore((state) => state.activeBoard);

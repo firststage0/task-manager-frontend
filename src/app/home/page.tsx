@@ -3,7 +3,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 import AddBoard from "@/modals/AddBoard/Modal";
 import { domain } from "@/utils/domain";
-import { useBoardsStore } from "@/store/boards";
+import { useBoardsStore } from "@/store/useStore";
 
 export default function Page() {
     const boards = useBoardsStore((state) => state.boards);

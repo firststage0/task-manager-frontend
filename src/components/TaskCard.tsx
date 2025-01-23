@@ -1,9 +1,9 @@
 "use client";
 import React, { useState } from "react";
-import { ITask } from "@/types/boards";
+import { ITask } from "@/types/types";
 import ContextMenuBtn from "./ContextMenuBtn";
 import { TextareaAutosize } from "@mui/base";
-import { useBoardsStore } from "@/store/boards";
+import { useBoardsStore } from "@/store/useStore";
 import DueDateLabel from "@/ui/DueDateLabel";
 import {
     DropdownMenu,

@@ -37,3 +37,9 @@ export interface ICheckListItem {
     taskId: number;
     isCompleted: boolean;
 }
+
+interface IPalette {
+    color: string;
+    paletteName: string;
+    shadow: string;
+}

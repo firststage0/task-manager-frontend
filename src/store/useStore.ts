@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { IBoard, ITask, TaskUpdateBody } from "@/types/boards";
+import { IBoard, ITask, TaskUpdateBody } from "@/types/types";
 import { domain } from "@/utils/domain";
 
 interface IBoardsStore {

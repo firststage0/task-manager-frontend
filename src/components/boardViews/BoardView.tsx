@@ -1,7 +1,7 @@
 "use client";
-import { useBoardsStore } from "@/store/boards";
+import { useBoardsStore } from "@/store/useStore";
 import React, { useEffect } from "react";
-import { IColumn } from "@/types/boards";
+import { IColumn } from "@/types/types";
 import AddColumn from "../modals/AddColumn/Modal";
 import Column from "@/components/Column";
 import AddNewTaskBtn from "@/components/AddNewTaskBtn";

@@ -1,5 +1,5 @@
 "use client";
-import { useBoardsStore } from "@/store/boards";
+import { useBoardsStore } from "@/store/useStore";
 import { usePathname } from "next/navigation";
 import React, { lazy, useEffect, useState } from "react";
 import Image from "next/image";

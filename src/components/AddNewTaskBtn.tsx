@@ -1,4 +1,4 @@
-import { useBoardsStore } from "@/store/boards";
+import { useBoardsStore } from "@/store/useStore";
 import { usePathname } from "next/navigation";
 import React from "react";
 

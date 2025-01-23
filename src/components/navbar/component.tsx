@@ -1,9 +1,9 @@
 "use client";
-import { useBoardsStore } from "@/store/boards";
+import { useBoardsStore } from "@/store/useStore";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { IBoard } from "@/types/boards";
+import { IBoard } from "@/types/types";
 
 export default function Navbar() {
     const boards = useBoardsStore((state) => state.boards);

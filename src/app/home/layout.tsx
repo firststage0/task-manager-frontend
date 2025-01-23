@@ -1,6 +1,6 @@
 "use client";
 import Navbar from "@/components/navbar/component";
-import { useBoardsStore } from "@/store/boards";
+import { useBoardsStore } from "@/store/useStore";
 import { domain } from "@/utils/domain";
 import React, { useEffect, useState } from "react";
 
