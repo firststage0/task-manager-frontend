@@ -12,7 +12,7 @@
 
 .light {
     --background: rgb(255, 255, 255);
-    --secondary-background: rgb(232, 230, 227);
+    --secondary-background: rgb(233, 233, 233);
     --foreground: rgb(0, 0, 0);
     --red: hsl(4, 90%, 64%);
 }
