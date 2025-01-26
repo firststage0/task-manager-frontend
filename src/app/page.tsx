@@ -9,11 +9,13 @@ export default function App() {
     const [mounted, setMounted] = useState(false);
     const { setTheme } = useTheme();
     const { palette, setPalette } = usePalette();
-
     const toogleColorPalete = (paleteName: string) => {
         const palete = colorPalettes.find((p) => p.paletteName === paleteName);
         if (palete) {
             setPalette(palete);
+            localStorage.setItem("color-palette", JSON.stringify(palete));
+        } else {
+            console.log("no color found");
         }
     };
 
@@ -27,7 +29,7 @@ export default function App() {
                         <div className="w-full h-full col-span-3 py-16 px-36 flex flex-col gap-6">
                             <p className="text-3xl font-bold">
                                 Task
-                                <span className={`text-[${palette.color}]`}>
+                                <span style={{ color: palette.color }}>
                                     Flow
                                 </span>
                             </p>
@@ -59,9 +61,13 @@ export default function App() {
                                     </div>
                                 </div>
                             </div>
-                            <div>
+                            <div className="flex gap-8 overflow-auto max-w-96">
                                 {colorPalettes.map((palette, key) => (
                                     <button
+                                        style={{
+                                            backgroundColor: palette.color,
+                                        }}
+                                        className="min-w-8 min-h-8 rounded-full "
                                         key={key}
                                         onClick={() =>
                                             toogleColorPalete(
@@ -69,7 +75,7 @@ export default function App() {
                                             )
                                         }
                                     >
-                                        {palette.paletteName}
+                                        {" "}
                                     </button>
                                 ))}
                             </div>
@@ -110,7 +116,14 @@ export default function App() {
     };
 
     useEffect(() => {
+        const colorPalette = localStorage.getItem("color-palette");
+        if (colorPalette) {
+            setPalette(JSON.parse(colorPalette));
+        } else {
+            setPalette(colorPalettes[0]);
+        }
         setMounted(true);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return renderHomePage();

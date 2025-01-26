@@ -11,7 +11,7 @@ export const colorPalettes = [
     },
     {
         paletteName: "orange",
-        color: "F07432",
+        color: "#F07432",
         shadow: "0_-2px_2px_0_F07432",
     },
     {

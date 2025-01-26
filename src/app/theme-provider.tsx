@@ -1,15 +1,31 @@
 "use client";
-import React, { createContext, useContext, useState } from "react";
+import React, {
+    createContext,
+    Dispatch,
+    SetStateAction,
+    useContext,
+    useState,
+} from "react";
 import { ThemeProvider as NextThemeProvider } from "next-themes";
 import { colorPalettes } from "@/constants/colorPalettes";
 import { IPalette } from "@/types/types";
 
-const PaletteContext = createContext({
-    palette: colorPalettes[0],
-    setPalette: (palette: IPalette) => {},
-});
+interface IPaletteContextType {
+    palette: IPalette;
+    setPalette: Dispatch<SetStateAction<IPalette>>;
+}
 
-export const usePalette = () => useContext(PaletteContext);
+const PaletteContext = createContext<IPaletteContextType | null>(null);
+
+export const usePalette = () => {
+    const paletteContext = useContext(PaletteContext);
+    if (!paletteContext) {
+        throw new Error(
+            "usePalette has to be used within <PaletteContext.Provider>"
+        );
+    }
+    return paletteContext;
+};
 
 export default function ThemeProvider({
     children,
@@ -20,12 +36,10 @@ export default function ThemeProvider({
         colorPalettes.find((p) => p.paletteName === "blue") || colorPalettes[0]
     );
     return (
-        <div>
-            <NextThemeProvider attribute="class" defaultTheme="system">
-                <PaletteContext.Provider value={{ palette, setPalette }}>
-                    {children}
-                </PaletteContext.Provider>
-            </NextThemeProvider>
-        </div>
+        <NextThemeProvider attribute="class" defaultTheme="system">
+            <PaletteContext.Provider value={{ palette, setPalette }}>
+                {children}
+            </PaletteContext.Provider>
+        </NextThemeProvider>
     );
 }
